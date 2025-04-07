@@ -1,6 +1,6 @@
+import { useFavoriteStore } from '@/store/favoriteStore';
 import { Heart, HeartOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useFavoriteStore } from '../../../store/favoriteStore';
 
 interface PokemonCardProps {
   name: string;

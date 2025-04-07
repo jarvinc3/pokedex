@@ -8,12 +8,18 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "jsx": "react-jsx",
-    "composite": true,
     "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
 
     /* Linting */
     "strict": true,

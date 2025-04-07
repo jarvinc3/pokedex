@@ -1,6 +1,6 @@
+import { PokemonAbility, PokemonDetail, PokemonType } from '@/types/pokemonDetail';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { PokemonAbility, PokemonDetail, PokemonType } from '../../../types/pokemonDetail';
 import { getPokemonByName } from '../api';
 
 

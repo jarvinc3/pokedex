@@ -1,4 +1,4 @@
-import api from '../../lib/axios';
+import api from '@/lib/axios';
 
 export const getAllPokemons = async (limit = 20, offset = 0) => {
    const res = await api.get(`/pokemon?limit=${limit}&offset=${offset}`);
