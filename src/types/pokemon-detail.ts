@@ -49,7 +49,7 @@ export interface PokemonType {
    type: NamedAPIResource;
 }
 
-export interface PokemonDetail {
+export interface PokemonDetails {
    abilities: PokemonAbility[];
    base_experience: number;
    cries: {
@@ -73,4 +73,10 @@ export interface PokemonDetail {
    stats: Stat[];
    types: PokemonType[];
    weight: number;
+}
+
+export interface GetAllPokemonsResponse {
+   results: NamedAPIResource[];
+   next: string | null;
+   previous: string | null;
 }
