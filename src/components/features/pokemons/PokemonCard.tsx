@@ -19,7 +19,7 @@ export const PokemonCard = ({ name, image, type }: PokemonCardProps) => {
 
   return (
     <div
-      className={`rounded-2xl shadow p-3 hover:shadow-lg transition relative duration-300 overflow-hidden border h-56 border-slate-300`}
+      className={`rounded-2xl mt-10 shadow p-3 hover:shadow-lg transition relative duration-300 border h-72 border-slate-300`}
       style={{ background: gradientBackground }}
     >
       <>
@@ -39,8 +39,8 @@ export const PokemonCard = ({ name, image, type }: PokemonCardProps) => {
         </div>
       </>
 
-      <Link to={`/pokemon/${name}`} className="relative z-10 h-full flex flex-col justify-end">
-        <img src={image} alt={name} className="size-auto mx-auto" />
+      <Link to={`/pokemon/${name}`} className="relative h-full flex flex-col justify-end">
+        <img src={image} alt={name} className="size-auto mx-auto z-50" />
         <h2 className="text-center mb-3 capitalize font-semibold text-xl mt-1 text-white drop-shadow shadow-black">
           • {name} •
         </h2>
