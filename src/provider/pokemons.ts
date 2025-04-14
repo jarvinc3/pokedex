@@ -6,7 +6,7 @@ export interface Pagination {
    prev: string | null;
 }
 
-export const fetchPokemonList = async (limit = 20, offset = 0):
+export const fetchPokemonList = async (limit = 21, offset = 0):
    Promise<{ pokemons: PokemonDetails[]; pagination: Pagination }> => {
    try {
       const { data } = await api.get(`/pokemon?limit=${limit}&offset=${offset}`);

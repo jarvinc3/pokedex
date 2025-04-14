@@ -16,7 +16,7 @@ export const PokemonCard = ({ name, image, type }: PokemonCardProps) => {
 
   return (
     <div
-      className={`rounded-2xl mt-14 shadow p-3 hover:shadow-lg transition relative duration-300 border h-72 border-slate-300`}
+      className={`rounded-2xl mt-14 shadow p-3 hover:shadow-lg transition relative duration-300 border lg:h-72 h-50 border-slate-300`}
       style={{ background: gradientBackground }}
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -28,7 +28,7 @@ export const PokemonCard = ({ name, image, type }: PokemonCardProps) => {
       </div>
 
       <Link to={`/pokemon/${name}`} className="relative h-full flex flex-col justify-end">
-        <img src={image} alt={name} className="size-auto mx-auto z-50" />
+        <img src={image} alt={name} className="lg:size-80 size-96 mx-auto" />
         <h2 className="text-center mb-3 capitalize font-semibold text-xl mt-1 text-white drop-shadow shadow-black">
           • {name} •
         </h2>
@@ -52,27 +52,3 @@ export const PokemonCard = ({ name, image, type }: PokemonCardProps) => {
     </div>
   );
 };
-
-// export const PokemonCardSkeleton = ({ name, image, type }: PokemonCardProps) => {
-//   return (
-//     <div className="card">
-//       <img src={image} alt={name} className="size-auto mx-auto z-50" />
-//       <h2 className="text-center mb-3 capitalize font-semibold text-xl mt-1 text-white drop-shadow shadow-black">
-//         • {name} •
-//       </h2>
-
-//       <div className="flex justify-center items-end gap-1 w-full">
-//         {type?.map((type, index) => (
-//           <span
-//             key={index}
-//             className="text-sm font-medium text-white drop-shadow shadow-black w-full py-1 rounded-md flex justify-center items-center gap-1 border border-slate-900/20"
-//             style={{ backgroundColor: typeColors[type.type.name as keyof typeof typeColors] }}
-//           >
-//             <img src={`/icons/${type.type.name}-type.ico`} className="w-4 h-4" alt="" />
-//             {type.type.name}
-//           </span>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };

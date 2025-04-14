@@ -2,8 +2,11 @@
 export const Footer = () => {
    return (
       <>
-         <div>
-            <h2 className="text-lg"><strong>Jarvin Collado</strong> - jarvinct3@gmail.com</h2>
+         <div className="flex flex-col justify-center gap-2">
+            <h2 className="text-lg">
+               <strong>Jarvin Collado</strong>
+               {" "} - jarvinct3@gmail.com
+            </h2>
             <p className="text-sm text-gray-500">© 2023 Pokémon. All rights reserved.</p>
          </div>
          <div className="flex justify-center items-center gap-4">

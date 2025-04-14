@@ -10,7 +10,7 @@ const PokemonPage = () => {
 
    const { data, isLoading, isError } = useQuery({
       queryKey: ['pokemons', offset],
-      queryFn: () => fetchPokemonList(20, offset),
+      queryFn: () => fetchPokemonList(21, offset),
       staleTime: 1000 * 60 * 5,
    });
 
@@ -19,7 +19,7 @@ const PokemonPage = () => {
       <Loader isLoading={isLoading}>
          {isError && <div className="text-red-500">Error fetching data</div>}
 
-         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
             {data?.pokemons.map((pokemon) => (
                <PokemonCard
                   key={pokemon.name}
