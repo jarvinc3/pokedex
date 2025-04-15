@@ -11,8 +11,10 @@ export default function WaveAnimation() {
 
       let animationFrameId: number
       let time = 0
-
       const baseColor = "0, 180, 216"
+      const baseHeight = 150
+      const verticalSpacing = 20
+
       const waves = [
          { amplitude: 15, frequency: 0.005, speed: 0.05, opacity: 0.8 },
          { amplitude: 10, frequency: 0.015, speed: 0.03, opacity: 0.6 },
@@ -24,8 +26,6 @@ export default function WaveAnimation() {
          canvas.height = window.innerHeight
       }
 
-      const baseHeight = 100
-      const verticalSpacing = 20
 
       const drawWave = (
          wave: typeof waves[number],

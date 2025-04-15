@@ -7,7 +7,7 @@ export const Footer = () => {
                <strong>Jarvin Collado</strong>
                {" "} - jarvinct3@gmail.com
             </h2>
-            <p className="text-sm text-gray-500">© 2023 Pokémon. All rights reserved.</p>
+            <p className="text-sm text-gray-500">© {new Date().getFullYear()} Pokémon. All rights reserved.</p>
          </div>
          <div className="flex justify-center items-center gap-4">
             <button className="Btn">

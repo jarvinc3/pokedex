@@ -1,33 +1,9 @@
-import menuAnimation from "@/components/ui/menu-animation.json";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import { LayoutDashboard, ListCollapse, Search } from "lucide-react";
-import { useRef } from "react";
+import { useViewModeStore } from "@/store/useListModeStore";
+import { AnimatePresence, motion } from "framer-motion";
+import { Filter, LayoutDashboard, ListCollapse, Search } from "lucide-react";
 
 export const Header = () => {
-   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
-
-   const handleClick = () => {
-      const lottie = lottieRef.current;
-      if (!lottie) return;
-
-      // Reproduce desde el inicio
-      lottie.goToAndPlay(0, true);
-
-      // Detecta cuando termina y detiene en el último frame
-      lottie.setSpeed(1);
-      const duration = lottie.getDuration(true); // duración en frames
-      const checkEnd = () => {
-         const currentFrame = lottie.animationItem?.currentFrame ?? 0;
-         if (currentFrame >= (duration ?? 0) - 1) {
-            lottie.goToAndStop((duration ?? 0) - 1, true);
-         } else {
-            requestAnimationFrame(checkEnd); // sigue checando
-         }
-      };
-
-      requestAnimationFrame(checkEnd);
-   };
-
+   const { isList, toggleView } = useViewModeStore();
 
    return (
       <>
@@ -52,19 +28,34 @@ export const Header = () => {
                Search
             </button>
          </div>
-         <div className=" w-full justify-between h-14 rounded-2xl p-1.5 flex items-center bg-zinc-900">
-
+         <div className="w-full justify-between h-14 rounded-2xl p-1.5 flex items-center bg-zinc-900">
+            <Filter className="size-6 text-white ml-2" />
          </div>
-         <ListCollapse />
-         <LayoutDashboard />
-         <Lottie
-            onClick={handleClick}
-            lottieRef={lottieRef}
-            animationData={menuAnimation}
-            loop={false}
-            autoplay={false}
-            className="size-32"
-         />
+         <div onClick={() => toggleView} className="cursor-pointer size-12">
+            <AnimatePresence mode="wait">
+               {isList ? (
+                  <motion.div
+                     key="list"
+                     initial={{ opacity: 0, rotate: -90 }}
+                     animate={{ opacity: 1, rotate: 0 }}
+                     exit={{ opacity: 0, rotate: 90 }}
+                     transition={{ duration: 0.3 }}
+                  >
+                     <ListCollapse className="size-full" />
+                  </motion.div>
+               ) : (
+                  <motion.div
+                     key="dashboard"
+                     initial={{ opacity: 0, rotate: 90 }}
+                     animate={{ opacity: 1, rotate: 0 }}
+                     exit={{ opacity: 0, rotate: -90 }}
+                     transition={{ duration: 0.3 }}
+                  >
+                     <LayoutDashboard className="size-full" />
+                  </motion.div>
+               )}
+            </AnimatePresence>
+         </div>
       </>
    )
 }
