@@ -47,5 +47,4 @@ export enum PokemonTypeEnum {
    sand = "sand",
    sound = "sound",
    speedy = "speedy",
-   unknown = "unknown",
 }
